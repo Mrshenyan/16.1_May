@@ -9,6 +9,7 @@
 
 using namespace std;
 void Isuser(string infoNcut[100], string infoPcut[100], string uname, string upass);
+bool adminFlag = false;
 
 void USign(string uname, string upass) {//登陆
 	//Loginfo sinfo;
@@ -38,7 +39,8 @@ void USign(string uname, string upass) {//登陆
 
 void Isuser(string infoNcut[100],string infoPcut[100],string uname,string upass) {
 	int loginCount = 0;
-	bool Isreg = false;
+	//bool Isreg = false;
+	int IsEnSM = 0;
 	for (int i = 0; i < infoNcut->size(); i++) {
 		//for (int j = 0; j < infoPcut->size(); j++) {
 		//	if ((infoNcut->_Equal(uname)) && (infoPcut->_Equal(upass))) {
@@ -54,7 +56,16 @@ void Isuser(string infoNcut[100],string infoPcut[100],string uname,string upass)
 		if (infoNcut[i]._Equal(uname)) {//是否有这个人
 			if (infoPcut[i]._Equal(upass)) {//密码对不
 				cout << "*****欢迎" << uname << "登陆天朝图书馆******" << endl;
-				userUiMain(uname);
+				if (infoNcut[i] == "admin") {
+					adminFlag = true;
+					cout << "是否进入系统管理模块？1：是，0，否";
+					cin >> IsEnSM;
+					if (IsEnSM == 1) {
+						SystemManage();//系统后台管理里
+						break;
+					}
+				}
+				userUiMain(uname);//普通用户登陆成功界面
 				break;
 			}
 			else {
@@ -83,5 +94,20 @@ void Isuser(string infoNcut[100],string infoPcut[100],string uname,string upass)
 	}
 }
 
+void SignUp() {
+	Loginfo linfo;
+	ofstream outfile;
+	ifstream infile;
+	outfile.open("infoUser.txt");
+	infile.open("infoUser.txt");
+	cout << "***************************************" << endl;
+	cout << setw(30) << "欢迎进入天朝图书管理系统" << setw(8) << endl;
+	cout << "***************************************" << endl;
+	cout << "请输入用户名：";
+	cin >> linfo.Lname;
+	cout << "请输入密码：";
+	cin >> linfo.Lpass;
+	USign(linfo.Lname, linfo.Lpass);//登陆程序
+}
 
 

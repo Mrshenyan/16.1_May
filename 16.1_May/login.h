@@ -23,6 +23,7 @@ struct Loginfo
 };
 
 void USign(string uname, string upass);//µÇÂ½³ÌÐò
+void SignUp();
 #endif // !Login
 
 

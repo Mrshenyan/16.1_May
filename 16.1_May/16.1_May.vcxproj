@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="adminUI.h" />
+    <ClInclude Include="BookManage.h" />
     <ClInclude Include="info.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="registe.h" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="16.1_May.cpp" />
     <ClCompile Include="adminUI.cpp" />
+    <ClCompile Include="BookManage.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="registe.cpp" />
     <ClCompile Include="stdafx.cpp">
