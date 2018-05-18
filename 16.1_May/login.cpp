@@ -27,6 +27,7 @@ void USign(string uname, string upass) {//登陆
 		
 		//infostr[lineCount] << infile;
 		infoNcut[lineCount-1] = infostr[lineCount].substr(0,nLen);//截取name
+
 		infoPcut[lineCount-1] = infostr[lineCount].substr(nLen,pLen+1);//截取pass,这里有时会出现一个Run-Time#0的错误
 	}
 	infile.close();//关闭文件连接
