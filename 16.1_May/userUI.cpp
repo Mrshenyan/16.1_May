@@ -72,6 +72,7 @@ void _1Flag() {//ÎÄ¼şµÄ¶ÁÈ¡ÓĞÎÊÌâ£¬²»ÄÜÕıÈ·µÄ¶ÁÈ¡ÊÖ¶¯ÊäÈëµÄÖĞÎÄ×Ö·û¡£»òĞíÊ¹ÓÃ¶à×
 		//getline(infile, bookstr);
 
 	}
+	infile.close();
 };
 
 void _2Flag() {

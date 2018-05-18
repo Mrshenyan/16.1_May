@@ -228,6 +228,7 @@ void _ManaRB() {//读取书的信息
 		infile >> bookinfoBuf;
 		readBuf.push_back(bookinfoBuf);
 	}
+	infile.close();
 }
 void _ManaRewri(vector<string> mrw) {//重新写入书籍信息
 	wrifile.open("new 1.txt");

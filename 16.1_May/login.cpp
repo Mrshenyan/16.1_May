@@ -20,7 +20,8 @@ void USign(string uname, string upass) {//登陆
 	string infoNcut[100];//存放截取到的name
 	string infoPcut[100];//存放截取到的pass
 	string infostr[100];//存放从文件读取到的信息
-	while (!infile.eof())
+
+	if (!infile.eof())
 	{
 		lineCount++;
 		getline(infile, infostr[lineCount]);//按行读取信息
@@ -83,7 +84,7 @@ void Isuser(string infoNcut[100],string infoPcut[100],string uname,string upass)
 				break;
 			}
 			else {
-
+				SignUp();
 				break;
 			}
 		}
@@ -98,8 +99,8 @@ void SignUp() {
 	Loginfo linfo;
 	ofstream outfile;
 	ifstream infile;
-	outfile.open("infoUser.txt");
-	infile.open("infoUser.txt");
+	outfile.open("Userinfo.txt");
+	infile.open("Userinfo.txt");
 	cout << "***************************************" << endl;
 	cout << setw(30) << "欢迎进入天朝图书管理系统" << setw(8) << endl;
 	cout << "***************************************" << endl;
@@ -108,6 +109,8 @@ void SignUp() {
 	cout << "请输入密码：";
 	cin >> linfo.Lpass;
 	USign(linfo.Lname, linfo.Lpass);//登陆程序
+	outfile.close();
+	infile.close();
 }
 
 

@@ -60,6 +60,10 @@ void DelUser() {
 		if (delname._Equal(infoNcut[i])) {
 			delbuf[i].erase();
 		}
+		else
+		{
+			cout << "找不到该用户" << endl;
+		}
 	}
 	for (int i=0;i<delbuf.size();i++)
 	{
