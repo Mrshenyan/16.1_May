@@ -7,5 +7,6 @@
 using namespace std;
 
 void Uregist();
+void WriteInfo(string wrName,string wrPass);
 
 #endif // !registe

@@ -7,6 +7,7 @@
 #include <fstream>
 #include "info.h"
 #include "registe.h"
+#include "BookManage.h"
 
 using namespace std;//为什么这个结构体需要放在这？
 //struct Loginfo

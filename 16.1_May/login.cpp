@@ -12,7 +12,6 @@ void Isuser(string infoNcut[100], string infoPcut[100], string uname, string upa
 bool adminFlag = false;
 
 void USign(string uname, string upass) {//登陆
-	//Loginfo sinfo;
 	ifstream infile;
 	infile.open("Userinfo.txt");//打开需要读取的文件
 	int lineCount = 0;//读取的行数
@@ -21,8 +20,6 @@ void USign(string uname, string upass) {//登陆
 	string infoNcut[100];//存放截取到的name
 	string infoPcut[100];//存放截取到的pass
 	string infostr[100];//存放从文件读取到的信息
-	/*string *iNcut = infoNcut;
-	string *iPcut = infoPcut;*/
 	while (!infile.eof())
 	{
 		lineCount++;
@@ -30,10 +27,10 @@ void USign(string uname, string upass) {//登陆
 		
 		//infostr[lineCount] << infile;
 		infoNcut[lineCount-1] = infostr[lineCount].substr(0,nLen);//截取name
-		infoPcut[lineCount-1] = infostr[lineCount].substr(nLen,pLen+1);//截取pass
+		infoPcut[lineCount-1] = infostr[lineCount].substr(nLen,pLen+1);//截取pass,这里有时会出现一个Run-Time#0的错误
 	}
 	infile.close();//关闭文件连接
-	Isuser(infoNcut, infoPcut,uname, upass);//对是否是注册人员进行判断
+	Isuser(infoNcut, infoPcut,uname, upass);//对是否已注册/管理员进行判断
 	
 }
 
@@ -75,11 +72,13 @@ void Isuser(string infoNcut[100],string infoPcut[100],string uname,string upass)
 			}
 		}
 		else {
-			cout << "对不起该用户还未注册，是否注册？1：是，0；否。" << endl;
+			cout << "对不起该用户还未注册，是否注册？" << endl;
+			cout << "1：是，0；否。:" ;
 			int re;
 			cin >> re;
 			if (re == 1) {
-				Uregist();//没有这个人提示是否要注册
+				Uregist();//没有这个人提示是否要注册注册结束调用登陆程序
+				//USign();
 				break;
 			}
 			else {

@@ -19,6 +19,7 @@ using std::setw;
 //	
 //};
 
+
 class _BookManage {
 	public:
 		int inputCh = 0;
