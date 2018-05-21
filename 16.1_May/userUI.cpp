@@ -17,7 +17,7 @@ void _1Flag();
 void _2Flag();
 void _3Flag();
 void _4Flag();
-void ChoiceFun(int choiceFalg);
+void ChoiceFun(int choiceFalg,string user);
 void userUiMain(string user) {
 	int choiceFalg = 0;
 	cout << "***************************************" << endl;
@@ -30,20 +30,28 @@ void userUiMain(string user) {
 	cout << "5.ÕÀ≥ˆ" << endl;
 	cout << "ƒ„œÎ◊ˆ ≤√¥£ø";
 	cin >> choiceFalg;
-	ChoiceFun(choiceFalg);
+	ChoiceFun(choiceFalg, user);
 };
 
 
-void ChoiceFun(int choiceFalg) {
+void ChoiceFun(int choiceFalg,string user) {
 	switch (choiceFalg)
 	{
-	case 1:_1Flag();//ΩË‘ƒ
+	case 1: {_1Flag(); //ΩË‘ƒ
+		userUiMain(user);
+	}
 		break;
-	case 2:_2Flag();//–¯ΩË
+	case 2: {_2Flag();//–¯ΩË
+		userUiMain(user);
+	}
 		break;
-	case 3:_3Flag();//ªπ È
+	case 3: {_3Flag();//ªπ È
+		userUiMain(user);
+	}
 		break;
-	case 4:_4Flag();//≤È’“
+	case 4: {_4Flag();//≤È’“
+		userUiMain(user);
+	}
 		break;
 	case 5: {
 		cout << "œµÕ≥Ω´‘⁄5√Î÷”∫ÛÕÀªÿµ«¬ΩΩÁ√Ê" << endl;
@@ -63,14 +71,28 @@ void _1Flag() {//Œƒº˛µƒ∂¡»°”–Œ Ã‚£¨≤ªƒ‹’˝»∑µƒ∂¡»° ÷∂Ø ‰»Îµƒ÷–Œƒ◊÷∑˚°£ªÚ–Ì π”√∂‡◊
 	cout << "******" << " ÈøØ∫≈" << "******" << " È√˚" << "******" << "◊˜’ﬂ" << "******" << "¿‡±" << "******" << endl;
 	vector<string>bookstr;
 	string bookinfoBuf;
+	string BookNum;
+	int lineCount = 0;
 	while (!infile.eof())//∂¡»° ˝æ›
 	{
 		//getline(infile, bookinfoBuf);
 		infile >> bookinfoBuf;
 		bookstr.push_back(bookinfoBuf);
 		cout << "     " <<bookinfoBuf<<endl;
+		lineCount++;
 		//getline(infile, bookstr);
 
+	}
+	cout << "«Î—°‘Òƒ„“™ΩË‘ƒµƒ Èµƒ–Ú∫≈£∫";
+	cin >> BookNum;
+	string data;
+
+	cout << "ƒ„—°‘Òµƒ È «£∫" << endl;
+	for (int i=0; i < lineCount;i++) {
+		data = bookstr[i].substr(0, 1);
+		if (BookNum._Equal(bookstr[i].substr(0, 1))) {
+			cout << bookstr[i] << endl;
+		}
 	}
 	infile.close();
 };

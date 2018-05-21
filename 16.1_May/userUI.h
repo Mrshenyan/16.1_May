@@ -11,7 +11,7 @@
 
 void userUiMain(string user);
 void ChoiceFun(int f);
-
+void Borrow();
 
 
 #endif // !USERUI

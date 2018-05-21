@@ -4,6 +4,7 @@
 #include <string>
 #include "registe.h"
 #include "info.h"
+#include "login.h"
 void Uregist() {
 	string reName;
 	string rePass;
@@ -62,7 +63,6 @@ void WriteInfo(string wrName,string wrPass) {
 		lineCount++;
 		getline(infile, infostr[lineCount]);//按行读取信息
 
-											//infostr[lineCount] << infile;
 		infoNcut[lineCount - 1] = infostr[lineCount].substr(0, nLen);//截取name
 		if (infoNcut->_Equal(wrName)) {
 			cout << "对不起该用户名已被注册" << endl;
@@ -70,8 +70,10 @@ void WriteInfo(string wrName,string wrPass) {
 		}
 		
 	}
-	//printf_s("\n");
+	upload << endl;
 	upload << (wrName+wrPass);
 	infile.close();
 	upload.close();
+	cout << "注册成功！返回登陆" << endl;
+	SignUp();
 }
